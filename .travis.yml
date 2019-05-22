@@ -1,6 +1,6 @@
 language: ruby
 sudo: required
-dist: trusty
+dist: xenial
 install:
   - sudo dpkg --add-architecture i386
   - sudo apt-get update
@@ -10,9 +10,10 @@ install:
   coreutils texi2html docbook-utils python-pysqlite2 help2man gcc \
   g++ make desktop-file-utils libgl1-mesa-dev libglu1-mesa-dev \
   mercurial autoconf automake groff curl lzop asciidoc u-boot-tools"
-env:
-  matrix:
-   - DEFCONFIG_NAME=arcturus_ucls1012a_defconfig
+cache:
+  directories:
+    - $HOME/bin
+    - fsl-arm-yocto-bsp
 script:
 - echo 'Getting "repo" tool'
 - mkdir -p ~/bin
@@ -28,4 +29,4 @@ script:
 - echo 'Building fsl-image-qt5'
 - EULA=1 MACHINE=imx8qmmek DISTRO=fsl-imx-xwayland source ./fsl-setup-release.sh -b bld-wayland
 - echo "BBLAYERS += \" \${BSPDIR}/sources/meta-imx-machinelearning \"" >> conf/bblayers.conf
-- bitbake fsl-image-qt5
+- bitbake -D fsl-image-gui
