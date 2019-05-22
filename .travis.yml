@@ -29,4 +29,4 @@ script:
 - echo 'Building fsl-image-qt5'
 - EULA=1 MACHINE=imx8qmmek DISTRO=fsl-imx-xwayland source ./fsl-setup-release.sh -b bld-wayland
 - echo "BBLAYERS += \" \${BSPDIR}/sources/meta-imx-machinelearning \"" >> conf/bblayers.conf
-- bitbake -D fsl-image-gui
+- bitbake fsl-image-gui
