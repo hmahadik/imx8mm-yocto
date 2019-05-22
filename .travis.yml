@@ -22,6 +22,7 @@ script:
 - echo 'Getting Yocto code'
 - mkdir -p fsl-arm-yocto-bsp
 - cd fsl-arm-yocto-bsp
+- git config --global color.ui true
 - repo init -u https://source.codeaurora.org/external/imx/imx-manifest -b imx-linux-sumo -m imx-4.14.78-1.0.0_machinelearning.xml
 - repo sync
 - echo 'Building fsl-image-qt5'
