@@ -17,6 +17,7 @@ jobs:
             sudo apt-get install -y coreutils texi2html docbook-utils python-pysqlite2 help2man gcc
             sudo apt-get install -y g++ make desktop-file-utils libgl1-mesa-dev libglu1-mesa-dev
             sudo apt-get install -y mercurial autoconf automake groff curl lzop asciidoc u-boot-tools
+            sudo apt-get install -y cpio
 
       - run:
           name: Install 'repo' tool
