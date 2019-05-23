@@ -32,6 +32,8 @@ jobs:
             export PATH=${PATH}:~/bin
             mkdir -p fsl-arm-yocto-bsp
             cd fsl-arm-yocto-bsp
+            git config --global user.name hmahadik
+            git config --global user.email harshad@arcturusnetworks.com
             git config --global color.ui true
             repo init -u https://source.codeaurora.org/external/imx/imx-manifest -b imx-linux-sumo -m imx-4.14.98-2.0.0_machinelearning.xml
             repo sync
