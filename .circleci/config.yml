@@ -18,10 +18,10 @@ jobs:
             sudo apt-get install -y g++ make desktop-file-utils libgl1-mesa-dev libglu1-mesa-dev
             sudo apt-get install -y mercurial autoconf automake groff curl lzop asciidoc u-boot-tools
             sudo apt-get install -y cpio
-
-      - run:
-          name: Install 'repo' tool
-          command: |
+            sudo apt-get install locales
+            sudo dpkg-reconfigure locales
+            sudo locale-gen en_US.UTF-8
+            sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
             mkdir -p ~/bin
             curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
             chmod a+x ~/bin/repo
@@ -31,6 +31,7 @@ jobs:
           name: Download and set up yocto-imx-machine-learning code
           command: |
             export PATH=${PATH}:~/bin
+            export LANG=en_US.UTF-8
             mkdir -p fsl-arm-yocto-bsp
             cd fsl-arm-yocto-bsp
             git config --global user.name hmahadik
@@ -46,4 +47,5 @@ jobs:
           command: |
             cd fsl-arm-yocto-bsp
             source setup-environment bld-wayland
+            export LANG=en_US.UTF-8
             bitbake fsl-image-gui
