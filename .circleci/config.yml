@@ -48,4 +48,4 @@ jobs:
             cd fsl-arm-yocto-bsp
             source setup-environment bld-wayland
             export LANG=en_US.UTF-8
-            bitbake fsl-image-gui
+            bitbake -q fsl-image-gui
