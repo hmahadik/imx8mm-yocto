@@ -5,10 +5,11 @@ FROM ubuntu:16.04
 WORKDIR /
 
 # Install any needed packages specified in requirements.txt
-RUN apt-get update && \
-	apt-get install -y gawk wget git-core diffstat unzip texinfo \
-	gcc-multilib build-essential chrpath socat libsdl1.2-dev && \
-	apt-get install -y libsdl1.2-dev xterm sed cvs subversion \
+RUN apt-get update && apt-get install -y --no-install-recommends apt-utils && \
+	apt-get update && \
+	apt-get install -y --no-install-recommends \
+	gawk wget git-core diffstat unzip texinfo \
+	gcc-multilib build-essential chrpath socat libsdl1.2-dev xterm sed cvs subversion \
 	coreutils texi2html docbook-utils python-pysqlite2 help2man gcc \
 	g++ make desktop-file-utils libgl1-mesa-dev libglu1-mesa-dev \
 	mercurial autoconf automake groff curl lzop asciidoc u-boot-tools && \
